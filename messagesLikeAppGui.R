@@ -1,5 +1,11 @@
 library(shinydashboard)
-# chatt <- character(0)
+source("udfs.R")
+source("udfsB.R")
+
+# the IBM NLC
+classifier <<- "2373f5x67-nlc-3778"
+
+# ui
 header <- dashboardHeader(title = "IBM NLC service integration with R-shiny", titleWidth = "100%")
 
 sidebar <- dashboardSidebar(disable = T)
@@ -58,6 +64,8 @@ ui <- dashboardPage(header, sidebar, body,
                                               
                                               '))))
 
+
+## server
 server <- function(input, output, session){
   session$onSessionEnded(function() {
     if(file.exists(session$token)){
