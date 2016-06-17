@@ -3,15 +3,15 @@
 ### Adapting the NLC APIs https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/apis/ to RCURL
 ######################################################
 
-library(RCurl) # install.packages("RCurl") # if the package is not already installed
-library(httr)
-library(XML)
-library(data.table)
-library(reshape2)
-library(tidyr)
-library(dplyr)
-library(stringr)
-library(splitstackshape)
+load_or_install("RCurl") # install.packages("RCurl") # if the package is not already installed
+load_or_install("httr")
+load_or_install("XML")
+load_or_install("data.table")
+load_or_install("reshape2")
+load_or_install("tidyr")
+load_or_install("dplyr")
+load_or_install("stringr")
+load_or_install("splitstackshape")
 
 # PROBLEM > If you get this > Error in function (type, msg, asError = TRUE)  :  SSL certificate problem: self signed certificate in certificate chain 
 # SOLUTION then you need to do this > YOU MUST KEEP THIS IN FOR below to work To begin: this line sets CERT Global to make a CA Cert go away - http://stackoverflow.com/questions/15347233/ssl-certificate-failed-for-twitter-in-r

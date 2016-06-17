@@ -1,3 +1,14 @@
+## the very first function to install or load namespaces
+load_or_install <- function(func = "", ...){
+  if(require(package =  func, character.only = T) == FALSE){
+    install.packages(func, clean = T, ...)
+    require(package =  func, character.only = T)
+  } else {
+    require(package =  func, character.only = T)
+  }
+}
+##
+
 getWatsonClass <- function(classifier, query){
   ans <- watson.nlc.processtextreturnclass(classifier, query)
   return(list("query" = query, ans[1,1, with=F], ans[1,2, with=F]))
