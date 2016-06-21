@@ -1,0 +1,27 @@
+My name is ;Username
+I am xyz;Username
+My age is ;Age
+I am xx years old;Age
+I am 34;Age
+I am 12;Age
+I am 26;Age
+I play tennis everyday;Play_type_advanced
+I play tennis once a week;Play_type_advanced
+I play tennis often;Play_type_hobby
+I play tennis once a month;Play_type_hobby
+I play sometimes;Play_type_beginner
+I dont like tennis;Play_type_beginner
+I love tennis;Play_type_hobby
+I am good at tennis;Play_type_advanced
+I am a champion ;Play_type_advanced
+I play tennis at national level tournament;Play_type_advanced
+I want to learn tennis;Play_type_beginner
+I play aggressive;Ptype_aggressive
+I play defensive;Ptype_defensive
+I am allrounder;Ptype_allround
+I play both aggressive and defensive;Ptype_allround
+I play more aggressive than defensive;Ptype_aggressive
+I play more defensive than aggressive;Ptype_defensive
+I am a denfendor;Ptype_defensive
+I am an offendor;Ptype_aggressive
+I play offensive;Ptype_aggressive

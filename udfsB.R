@@ -114,3 +114,45 @@ getProfile <- function(classifier, in.txt){
   }
   return(ans.df2)
 }
+
+
+convertUserProfile <- function(user.df){
+  anss <- lapply(1:nrow(user.df), 
+                 function(ii){
+                   switch(as.character(user.df$x2[ii]),
+                          Username = {data.table("Username", getUsername(as.character(user.df$x1[ii])))},
+                          Age = {data.table("Age", getDigits(as.character(user.df$x1[ii])))},
+                          Player_type_hobby = {data.table("Player", "Hobby")},
+                          Player_type_advanced = {data.table("Player", "Advanced")},
+                          Player_type_beginner = {data.table("Player", "Beginner")},
+                          Ptype_aggressive = {data.table("Type", "Aggressive")},
+                          Ptype_defensive = {data.table("Type", "Defensive")},
+                          Ptype_allround = {data.table("Type", "Allround")},
+                          Stype_flat = {data.table("Stroke", "Flat")},
+                          Stype_topspin = {data.table("Stroke", "Topspin")},
+                          Stype_slice = {data.table("Stroke", "Slice")}, 
+                          Err_type_hits = {data.table("Error", "Many frame hits")},
+                          Err_type_balls = {data.table("Error", "Many balls out of bounds")},
+                          Err_type_acc = {data.table("Error", "Low accuracy")})
+                 })
+  anss <- rbindlist(anss)
+  return(anss)
+}
+
+getReply <- function(in.txt, watson.class){
+  switch(watson.class,
+         Username = {getUsername(as.character(in.txt))},
+         Age = {getDigits(as.character(in.txt))},
+         Player_type_hobby = {"Hobby"},
+         Player_type_advanced = {"Advanced"},
+         Player_type_beginner = {"Beginner"},
+         Ptype_aggressive = {"Aggressive"},
+         Ptype_defensive = {"Defensive"},
+         Ptype_allround = {"Allround"},
+         Stype_flat = {"Flat"},
+         Stype_topspin = {"Topspin"},
+         Stype_slice = {"Slice"}, 
+         Err_type_hits = {"Many frame hits"},
+         Err_type_balls = {"Many balls out of bounds"},
+         Err_type_acc = {"Low accuracy"})
+}
